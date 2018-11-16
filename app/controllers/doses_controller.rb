@@ -16,6 +16,18 @@ class DosesController < ApplicationController
 
   end
 
+  def update
+    respond_to do |format|
+      if @dose.update(dose_params)
+        format.html { redirect_to @dose, notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: @dose }
+      else
+        format.html { render :edit }
+        format.json { render json: @dose.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def set_cocktail

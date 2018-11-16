@@ -1,5 +1,6 @@
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+
   def index
     @cocktail = Cocktail.all
   end
@@ -42,11 +43,9 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
+    @cocktail = Cocktail.find(params[:id])
     @cocktail.destroy
-    respond_to do |format|
-      format.html { redirect_to cocktails_url, notice: 'Cocktail was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to cocktails_path
   end
 
    private
@@ -57,6 +56,6 @@ class CocktailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cocktail_params
-      params.require(:cocktail).permit(:name, :address, :rating, :banner_url)
+      params.require(:cocktail).permit(:name)
     end
 end

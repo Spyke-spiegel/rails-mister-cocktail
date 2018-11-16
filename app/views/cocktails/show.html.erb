@@ -8,5 +8,5 @@
   <p><%= dose.ingredient.name %></p>
 <% end %>
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
-<%= link_to 'delete', destroy_cocktail_path %> |
+<%= link_to "Add a Recipe" , new_cocktail_dose_path(@cocktail) %> |
 <%= link_to 'Back', cocktails_path %>
