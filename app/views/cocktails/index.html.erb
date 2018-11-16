@@ -1,0 +1,16 @@
+    <h1>Mister Cocktail</h1>
+<div class="container">
+  <div class="row">
+    <% @cocktail.each do |cocktail| %>
+      <div class="col col-xs-12 col-sm-4">
+        <%= link_to cocktail_path(cocktail) do  %>
+          <h2><%= cocktail.name%></h2>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- link_to path do-->
+<!-- CLICKABLE -->
+<!-- end -->
+<%= link_to 'New Cocktail', new_cocktail_path %>
