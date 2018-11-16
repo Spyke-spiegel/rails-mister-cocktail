@@ -1,16 +1,23 @@
-    <h1>Mister Cocktail</h1>
-<div class="container">
-  <div class="row">
-    <% @cocktail.each do |cocktail| %>
-      <div class="col col-xs-12 col-sm-4">
-        <%= link_to cocktail_path(cocktail) do  %>
-          <h2><%= cocktail.name%></h2>
-        <% end %>
-      </div>
-    <% end %>
+<div class="banner" style="background-image: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%), url('<%= image_path 'bar.jpg' %>');">
+  <div class="banner-content">
+    <a><%= image_tag 'logo.png' %></a>
+    <a class="btn btn-primary btn-lg">Start now</a>
   </div>
 </div>
-<!-- link_to path do-->
-<!-- CLICKABLE -->
-<!-- end -->
-<%= link_to 'New Cocktail', new_cocktail_path %>
+    <div class="container">
+      <div class="row">
+        <% @cocktail.each do |cocktail| %>
+        <div class="col col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+            <%= link_to cocktail_path(cocktail) do  %>
+            <h2><%= cocktail.name%></h2>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    <!-- link_to path do-->
+    <!-- CLICKABLE -->
+    <!-- end -->
+    <%= link_to 'New Cocktail', new_cocktail_path %>
+    </div>
